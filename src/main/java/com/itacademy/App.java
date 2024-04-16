@@ -58,10 +58,6 @@ public class App
             System.out.println("Что-то пошло не так");
         }
 
-        int d = 4;
-        int b = 6;
-       ITest.MyInterface<Integer> myFuncInterface = (cVal,bVal) -> System.out.println(cVal + bVal);
-        myFuncInterface.doSmt(d,b);
 
 
 
@@ -88,7 +84,7 @@ public class App
         filterStudent.forEach(student -> System.out.println(student.getName() + ": " + student.getAge()));
         long studentCount = filterStudent.stream().count();
         System.out.println(studentCount);
-        
+
 
         //collect(Collectors.toList()) - собирает элементы потока в список
        // IntStream.of(students.getLast()).map(x->x+10);
@@ -100,5 +96,16 @@ public class App
 //        Stream stream = students.stream();
 //        System.out.println(stream);
 //        students.stream().map(Student::getName);
+        int d = 4;
+        int b = 6;
+        MyFunctionalInterface<Integer> myFuncInterface = (cVal,bVal) -> System.out.println(cVal + bVal);
+        myFuncInterface.doSmt(d,b);
     }
+    @FunctionalInterface
+    public interface MyFunctionalInterface<T>
+    {
+        void doSmt (T d,T b);
+    }
+
+
 }
